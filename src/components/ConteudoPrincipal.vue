@@ -1,31 +1,22 @@
 <script lang="ts">
+import SelecionarIngredientes from './SelecionarIngredientes.vue';
+import SuaLista from './SuaLista.vue';
+import Tag from './Tag.vue';
+
     export default {
         data() {
             return {
                 ingredientes: ['Alho', 'Manteiga', 'Oregano']
             }
-        }
+        },
+        components: { SelecionarIngredientes, Tag, SuaLista }
     }
 </script>
 
 <template>
     <main class="conteudo-principal">
-        <section>
-            <span class="subtitulo-lg sua-lista-texto">
-                Sua Lista:
-            </span>
-
-            <ul v-if="ingredientes.length != 0" class="ingredientes-sua-lista">
-                <li v-for="ingrediente in ingredientes" :key="ingrediente" class="ingrediente">
-                    {{ ingrediente }}
-                </li>
-            </ul>
-
-            <p v-else class="paragrafo lista-vazia">
-                <img src="../assets/images/icones/lista-vazia.svg" alt="Ícone de pesquisa">
-                Sua lista istá vazia, seleciona ingredientes para iniciar
-            </p>
-        </section>
+        <SuaLista :ingredientes="ingredientes"/>
+        <SelecionarIngredientes />
     </main>
 </template>
 
@@ -42,42 +33,7 @@
   gap: 5rem;
 }
 
-.sua-lista-texto {
-  color: var(--coral, #F0633C);
-  display: block;
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
 
-.ingredientes-sua-lista {
-  display: flex;
-  justify-content: center;
-  gap: 1rem 1.5rem;
-  flex-wrap: wrap;
-}
-
-.ingrediente {
-  display: inline-block;
-  border-radius: 0.5rem;
-  min-width: 4.25rem;
-  padding: 0.5rem;
-  text-align: center;
-    transition: 0.2s;
-    color: var(--creme, #FFFAF3);
-  background: var(--coral, #F0633C);
-  font-weight: 700;
-}
-
-.lista-vazia {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.25rem;
-
-  color: var(--coral, #F0633C);
-  text-align: center;
-}
 
 @media only screen and (max-width: 1300px) {
   .conteudo-principal {
