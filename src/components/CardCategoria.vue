@@ -9,7 +9,7 @@ import IngredienteSelecionavel from './IngredienteSelecionavel.vue';
             categoria: {type: Object as PropType<ICategoria>, required: true}
         },
         components: {IngredienteSelecionavel},
-        emits : ['adicionarIngrediente']
+        emits : ['adicionarIngrediente', 'removerIngrediente']
     }
 </script>
 
@@ -23,7 +23,8 @@ import IngredienteSelecionavel from './IngredienteSelecionavel.vue';
             <li v-for="ingrediente in categoria.ingredientes" :key="ingrediente">
                 <IngredienteSelecionavel 
                 :ingrediente="ingrediente"
-                @adicionar-ingrediente="$emit('adicionarIngrediente', $event)"/>
+                @adicionar-ingrediente="$emit('adicionarIngrediente', $event)"
+                @remover-ingrediente="$emit('removerIngrediente', $event)"/>
             </li>
         </ul>
     </article>

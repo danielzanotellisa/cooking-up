@@ -14,13 +14,18 @@ export default {
     methods: {
         onClick() {
             this.seleceionado = !this.seleceionado
-            if(this.seleceionado) {
+            if(this.seleceionado == false) {
+                this.$emit('removerIngrediente', this.ingrediente)
+                console.log(this.seleceionado)
+            } else {
                 this.$emit('adicionarIngrediente', this.ingrediente);
+                console.log(this.seleceionado)
             }
+            
         }
     },
 
-    emits : ['adicionarIngrediente']
+    emits : ['adicionarIngrediente', 'removerIngrediente']
 }
 
 </script>

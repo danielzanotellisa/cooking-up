@@ -13,7 +13,14 @@ import Tag from './Tag.vue';
         methods : {
             adicionarIngrediente(ingrediente: string) {
                 this.ingredientes.push(ingrediente)
-            }
+                console.log(ingrediente)
+            },
+            removerIngrediente(ingrediente: string) {
+              let indexToRemove = this.ingredientes.indexOf(ingrediente)
+              this.ingredientes.splice(indexToRemove,1)
+              console.log(ingrediente)
+            },
+            
         }
     }
 </script>
@@ -22,7 +29,8 @@ import Tag from './Tag.vue';
     <main class="conteudo-principal">
         <SuaLista :ingredientes="ingredientes"/>
         <SelecionarIngredientes 
-        @adicionar-ingrediente="adicionarIngrediente($event)" />
+        @adicionar-ingrediente="adicionarIngrediente($event)"
+        @remover-ingrediente="removerIngrediente($event)" />
     </main>
 </template>
 
