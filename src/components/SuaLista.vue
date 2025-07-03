@@ -50,4 +50,7 @@ export default {
 
   color: var(--coral, #F0633C);
   text-align: center;
-}</style>
+
+}
+
+</style>
